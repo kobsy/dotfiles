@@ -14,7 +14,7 @@ if test -n "$BOXEN_HOME"
 end
 
 # Nodenv Config
-if which nodenv
+if which nodenv > /dev/null
   status --is-interactive; and . (nodenv init -|psub)
 end
 
@@ -23,6 +23,8 @@ set -x VISUAL nvim
 set -x EDITOR "$VISUAL"
 
 # Add some override shims to PATH
-set -x PATH ~/.override_shims $PATH
+if test -d ~/.override_shims
+  set -x PATH ~/.override_shims $PATH
+end
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
