@@ -5,6 +5,8 @@ ulimit -Sn 65536
 # EP Toolchain
 if test -e ~/.ep/bin/ep
   eval (~/.ep/bin/ep init - fish)
+else
+  source ~/.config/fish/aliases.fish
 end
 
 # Rbenv Config
