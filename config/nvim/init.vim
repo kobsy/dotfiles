@@ -34,6 +34,7 @@ set splitright
 set background = "dark"
 colorscheme one
 let g:airline_theme = 'onedark'
+let g:airline_powerline_fonts = 1
 set termguicolors
 
 highlight Comment cterm=italic
