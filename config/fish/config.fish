@@ -29,6 +29,9 @@ if which pyenv > /dev/null
   status --is-interactive; and . (pyenv init -|psub)
 end
 
+# Allow finding the subl commmand
+set -x PATH $PATH /Applications/Sublime\ Text.app/Contents/SharedSupport/bin
+
 # Set default editor
 set -x VISUAL nvim
 set -x EDITOR "$VISUAL"
