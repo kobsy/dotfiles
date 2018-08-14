@@ -20,6 +20,18 @@ if which nodenv > /dev/null
   status --is-interactive; and . (nodenv init -|psub)
 end
 
+# Pyenv Config
+if test -n "$PYENV_ROOT"
+  set -x PYENV_ROOT "$HOME/.pyenv"
+  set -x PATH "$PYENV_ROOT/bin" $PATH
+end
+if which pyenv > /dev/null
+  status --is-interactive; and . (pyenv init -|psub)
+end
+
+# Allow finding the subl commmand
+set -x PATH $PATH /Applications/Sublime\ Text.app/Contents/SharedSupport/bin
+
 # Set default editor
 set -x VISUAL nvim
 set -x EDITOR "$VISUAL"
