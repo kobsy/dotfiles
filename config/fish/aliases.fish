@@ -252,7 +252,13 @@ end
 function gpo
   # pushes the current branch; whatever that is
   gbranch
-  gp origin $current_branch $argv
+  for line in (gp origin $current_branch $argv 2>&1)
+    echo (string trim -r $line) 1>&2
+    set url (echo $line | grep -o -E "https://github.com/.+?/pull/new.+" -)
+    if test -n "$url"
+      echo $url | pbcopy
+    end
+  end
 end
 
 function gpo!
