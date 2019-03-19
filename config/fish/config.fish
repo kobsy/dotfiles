@@ -10,8 +10,8 @@ else
 end
 
 # Rbenv Config
-if test -n "$BOXEN_HOME"
-  set -x RBENV_ROOT "$BOXEN_HOME/rbenv"
+if test -d "$HOME/.rbenv"
+  set -x RBENV_ROOT "$HOME/.rbenv"
   source (rbenv init -|psub)
 end
 
