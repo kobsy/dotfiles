@@ -11,10 +11,10 @@ set hlsearch
 set backspace=indent,eol,start
 
 " Buffer traversal commands
-nnoremap <silent> [b :bprevious
-nnoremap <silent> ]b :bnext
-nnoremap <silent> [B :bfirst
-nnoremap <silent> ]B :blast
+nnoremap <silent> [b :bprevious<CR>
+nnoremap <silent> ]b :bnext<CR>
+nnoremap <silent> [B :bfirst<CR>
+nnoremap <silent> ]B :blast<CR>
 
 " Turn on syntax highlighting
 syntax on
