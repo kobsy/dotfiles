@@ -29,3 +29,6 @@ set list
 " Autoindenting
 set autoindent
 set smartindent
+
+" vim-gitgutter settings
+set updatetime=100
