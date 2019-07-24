@@ -30,5 +30,9 @@ set list
 set autoindent
 set smartindent
 
+" Display tabline at top
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+
 " vim-gitgutter settings
 set updatetime=100
