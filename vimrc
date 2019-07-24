@@ -15,3 +15,17 @@ nnoremap <silent> [b :bprevious
 nnoremap <silent> ]b :bnext
 nnoremap <silent> [B :bfirst
 nnoremap <silent> ]B :blast
+
+" Turn on syntax highlighting
+syntax on
+
+" fzf integration
+set rtp+=~/.fzf
+
+" Show invisible characters
+set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
+set list
+
+" Autoindenting
+set autoindent
+set smartindent
