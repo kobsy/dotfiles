@@ -36,3 +36,6 @@ let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
 
 " vim-gitgutter settings
 set updatetime=100
+
+" Powerline symbols in airline
+let g:airline_powerline_fonts = 1
