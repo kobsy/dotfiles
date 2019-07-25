@@ -39,3 +39,6 @@ set updatetime=100
 
 " Powerline symbols in airline
 let g:airline_powerline_fonts = 1
+
+" Improve airline mode switching
+set ttimeoutlen=10
