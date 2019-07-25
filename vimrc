@@ -42,3 +42,11 @@ let g:airline_powerline_fonts = 1
 
 " Improve airline mode switching
 set ttimeoutlen=10
+
+" Integrate ale with airline
+let g:airline#extensions#ale#enabled = 1
+
+" Load all the helptags, should always be at the
+" end of the file
+packloadall
+silent! helptags ALL
