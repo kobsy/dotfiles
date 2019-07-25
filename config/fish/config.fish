@@ -33,7 +33,7 @@ end
 set -x PATH $PATH /Applications/Sublime\ Text.app/Contents/SharedSupport/bin
 
 # Set default editor
-set -x VISUAL nvim
+set -x VISUAL vim
 set -x EDITOR "$VISUAL"
 
 # Add some override shims to PATH
