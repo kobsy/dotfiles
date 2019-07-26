@@ -21,13 +21,15 @@ syntax on
 
 " fzf integration
 set rtp+=~/.fzf
+nnoremap <C-p> :Files<CR>
 
 " Show invisible characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 set list
 
-" Color whitespace using dark gray
+" Color whitespace and comments using dark gray
 hi SpecialKey ctermfg=DarkGray
+hi Comment ctermfg=DarkGray
 
 " Autoindenting
 set autoindent
