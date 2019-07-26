@@ -27,8 +27,7 @@ set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 set list
 
 " Color whitespace using dark gray
-hi Whitespace ctermfg=DarkGray
-match Whitespace /\s/
+hi SpecialKey ctermfg=DarkGray
 
 " Autoindenting
 set autoindent
