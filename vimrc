@@ -31,6 +31,9 @@ set list
 hi SpecialKey ctermfg=DarkGray
 hi Comment ctermfg=DarkGray
 
+" Use atom-dark color scheme
+colorscheme atom-dark-256
+
 " Autoindenting
 set autoindent
 set smartindent
