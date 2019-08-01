@@ -22,3 +22,6 @@
 [submodule "vim/pack/plugins/start/tcomment_vim"]
 	path = vim/pack/plugins/start/tcomment_vim
 	url = https://github.com/tomtom/tcomment_vim
+[submodule "vim/pack/plugins/start/vim-rhubarb"]
+	path = vim/pack/plugins/start/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
