@@ -23,6 +23,15 @@ syntax on
 set rtp+=~/.fzf
 nnoremap <C-p> :Files<CR>
 
+" Set up fzf to use ripgrep and omit filename matches
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --hidden --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
+nnoremap <C-g> :Rg!<CR>
+
 " Show invisible characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
 set list

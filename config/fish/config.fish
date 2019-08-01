@@ -32,6 +32,9 @@ end
 # Allow finding the subl commmand
 set -x PATH $PATH /Applications/Sublime\ Text.app/Contents/SharedSupport/bin
 
+# Have fzf use ripgrep by default
+set -gx FZF_DEFAULT_COMMAND "rg --files --hidden"
+
 # Set default editor
 set -x VISUAL vim
 set -x EDITOR "$VISUAL"
