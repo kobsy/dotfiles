@@ -7,6 +7,9 @@ set tabstop=2 shiftwidth=2 expandtab
 " Highlight all search results
 set hlsearch
 
+" Perform incremental search
+set incsearch
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
