@@ -74,7 +74,7 @@ let g:airline_powerline_fonts = 1
 set ttimeoutlen=10
 
 " Integrate ale with airline
-let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#ale#enabled = 1
 
 " Store swap files in the home directory instead of cluttering up repos
 set directory^=$HOME/.vim/swap//
