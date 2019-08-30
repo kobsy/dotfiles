@@ -28,3 +28,6 @@
 [submodule "vim/pack/plugins/start/vim-repeat"]
 	path = vim/pack/plugins/start/vim-repeat
 	url = git@github.com:tpope/vim-repeat.git
+[submodule "vim/pack/plugins/start/vim-coffee-script"]
+	path = vim/pack/plugins/start/vim-coffee-script
+	url = git@github.com:kchmck/vim-coffee-script.git
