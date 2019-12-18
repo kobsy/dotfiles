@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Ensure submodules are cloned
+git submodules init && git submodules update
+
+# Start off by symlinking the appropriate files and folders
+ln -s config ~/.config
+ln -s vim ~/.vim
+ln -s vimrc ~/.vimrc
+
+# Install Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+# Install software using Brewfile
+brew bundle
+
+# Install fish as a shell option
+echo /usr/local/bin/fish | sudo tee -a /etc/shells
+
+# Install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --all
