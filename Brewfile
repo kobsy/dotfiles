@@ -13,6 +13,7 @@ brew "autoconf"
 brew "automake"
 brew "libtool"
 brew "coreutils"
+brew "cmake"
 
 # Ruby
 brew "rbenv"
