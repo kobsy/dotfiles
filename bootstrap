@@ -4,7 +4,9 @@
 git submodules init && git submodules update
 
 # Start off by symlinking the appropriate files and folders
-ln -s config ~/.config
+mkdir ~./config
+ln -s config/fish ~/.config/fish
+ln -s config/nvim ~/.config/nvim
 ln -s vim ~/.vim
 ln -s vimrc ~/.vimrc
 
