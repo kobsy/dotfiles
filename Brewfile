@@ -20,6 +20,7 @@ brew "rbenv"
 brew "ruby-build"
 
 # Node
+brew "nodejs"
 brew "nodenv"
 brew "node-build"
 
