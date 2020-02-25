@@ -1,5 +1,5 @@
 # Increase the number of allowed open files
-ulimit -Hn 200000
+# ulimit -Hn 200000 # Permission denied in Mojave?
 ulimit -Sn 65536
 
 # EP Toolchain
@@ -45,3 +45,4 @@ if test -d ~/.override_shims
 end
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+set -g fish_user_paths "/usr/local/opt/postgresql@11/bin" $fish_user_paths
