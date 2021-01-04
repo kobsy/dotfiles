@@ -172,7 +172,7 @@ function gf
     git fetch
 
     # If the branch exists, delete it to be sure we've got the latest
-    git show-branch $argv[1] > /dev/null ^&1; and gdelete $argv[1]
+    git show-branch $argv[1] &> /dev/null; and gdelete $argv[1]
 
     shadowprint "git checkout -b $argv[1] origin/$argv[1]"
     git checkout -b $argv[1] origin/$argv[1]
