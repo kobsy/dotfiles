@@ -1,9 +1,6 @@
-# Increase the number of allowed open files
-# ulimit -Hn 200000 # Permission denied in Mojave?
-ulimit -Sn 65536
-
 # EP Toolchain
 if test -e ~/.ep/bin/ep
+  set -x PROJECTS_PATH "$HOME/Code"
   eval (~/.ep/bin/ep init - fish)
 else
   source ~/.config/fish/aliases.fish
@@ -12,12 +9,12 @@ end
 # Rbenv Config
 if test -d "$HOME/.rbenv"
   set -x RBENV_ROOT "$HOME/.rbenv"
-  source (rbenv init -|psub)
+  status --is-interactive; and source (rbenv init -|psub)
 end
 
 # Nodenv Config
 if which nodenv > /dev/null
-  status --is-interactive; and . (nodenv init -|psub)
+  status --is-interactive; and source (nodenv init -|psub)
 end
 
 # Pyenv Config
@@ -36,7 +33,7 @@ set -x PATH $PATH /Applications/Sublime\ Text.app/Contents/SharedSupport/bin
 set -gx FZF_DEFAULT_COMMAND "rg --files --hidden"
 
 # Set default editor
-set -x VISUAL vim
+set -x VISUAL nvim
 set -x EDITOR "$VISUAL"
 
 # Add some override shims to PATH
