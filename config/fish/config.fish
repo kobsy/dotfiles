@@ -12,12 +12,12 @@ end
 # Rbenv Config
 if test -d "$HOME/.rbenv"
   set -x RBENV_ROOT "$HOME/.rbenv"
-  source (rbenv init -|psub)
+  status --is-interactive; and source (rbenv init -|psub)
 end
 
 # Nodenv Config
 if which nodenv > /dev/null
-  status --is-interactive; and . (nodenv init -|psub)
+  status --is-interactive; and source (nodenv init -|psub)
 end
 
 # Pyenv Config
