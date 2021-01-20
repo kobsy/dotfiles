@@ -6,6 +6,11 @@ else
   source ~/.config/fish/aliases.fish
 end
 
+# Homebrew on M1 Macs
+if test -e /opt/homebrew/bin/brew
+  eval (/opt/homebrew/bin/brew shellenv)
+end
+
 # Rbenv Config
 if test -d "$HOME/.rbenv"
   set -x RBENV_ROOT "$HOME/.rbenv"
