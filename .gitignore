@@ -3,3 +3,4 @@ config/nvim/plugged
 config/nvim/plugged/**
 vim/.netrwhist
 vim/swap
+vim/plugged
