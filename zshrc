@@ -121,6 +121,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias gskip="SKIP_HOOKUP=1 git checkout"
+
 # EP Toolchain
 if [ -e $HOME/.ep/bin/ep ]; then
   export PROJECTS_PATH="$HOME/Code"
