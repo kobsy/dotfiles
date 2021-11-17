@@ -91,7 +91,7 @@ zstyle ':omz:update' frequency 13
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(bundler fzf gh git heroku iterm2 osx rbenv zsh-autosuggestions)
+plugins=(bundler fzf gh git heroku iterm2 macos rbenv zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
