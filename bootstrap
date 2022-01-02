@@ -5,10 +5,10 @@ git submodule init && git submodule update
 
 # Start off by symlinking the appropriate files and folders
 mkdir ~./config
-ln -s config/fish ~/.config/fish
-ln -s config/nvim ~/.config/nvim
-ln -s vim ~/.vim
-ln -s vimrc ~/.vimrc
+ln -s ./config/fish ~/.config/fish
+ln -s ./config/nvim ~/.config/nvim
+ln -s ./vim ~/.vim
+ln -s ./vimrc ~/.vimrc
 
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
