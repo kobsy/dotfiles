@@ -17,9 +17,9 @@ if type brew &>/dev/null; then
 fi
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/kobsmc/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
-DEFAULT_USER="kobsmc"
+DEFAULT_USER="$(whoami)"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -163,3 +163,5 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
