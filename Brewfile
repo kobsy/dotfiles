@@ -27,9 +27,6 @@ brew "node-build"
 # Other utilities
 brew "redis"
 
-# Binary utilities
-cask "postgres"
-
 # Browsers
 cask "google-chrome"
 cask "firefox-developer-edition"
