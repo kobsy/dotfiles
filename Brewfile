@@ -32,14 +32,16 @@ cask "postgres"
 
 # Browsers
 cask "google-chrome"
-cask "firefox"
+cask "firefox-developer-edition"
 
 # Development tools
 brew "vim"
+brew "nvim"
 brew "ripgrep"
 cask "sourcetree"
 cask "iterm2"
 cask "visual-studio-code"
+cask "docker"
 
 # Other tools
 brew "fish"
