@@ -31,11 +31,17 @@ set incsearch
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
+" turn on the mouse for moving buffers
+set mouse+=a
+
 " Buffer traversal commands
 nnoremap <silent> [b :bprevious!<CR>
 nnoremap <silent> ]b :bnext!<CR>
 nnoremap <silent> [B :bfirst!<CR>
 nnoremap <silent> ]B :blast!<CR>
+
+" Fly between buffers
+nnoremap <leader>t :ls t<CR>:b<space>
 
 " Turn on syntax highlighting
 syntax on
