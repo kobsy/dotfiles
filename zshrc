@@ -4,9 +4,6 @@
 # Enable Homebrew completions
 if type brew &>/dev/null; then
   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-  autoload -Uz compinit
-  compinit
 fi
 
 # Path to your oh-my-zsh installation.
@@ -21,10 +18,12 @@ DEFAULT_USER="$(whoami)"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
 # ZSH_THEME="robbyrussell"
 # ZSH_THEME="agnoster"
-ZSH_THEME="gnzh"
-# ZSH_THEME="intheloop"
+# ZSH_THEME="gnzh"
 # ZSH_THEME="fishy"
 # ZSH_THEME="gallifrey"
+# ZSH_THEME="intheloop"
+# ZSH_THEME="macovsky"
+ZSH_THEME="simple"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -157,6 +156,17 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+#
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]} m:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=** r:|=**' '' 'l:|=* r:|=*'
+zstyle ':completion:*' max-errors 9
+zstyle :compinstall filename '/Users/kobsmc/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
