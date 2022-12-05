@@ -138,6 +138,10 @@ if which nodenv > /dev/null; then
   eval "$(nodenv init - zsh)"
 fi
 
+if which pyenv > /dev/null; then
+  eval "$(pyenv init -)"
+fi
+
 # Have fzf use ripgrep by default
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
 
