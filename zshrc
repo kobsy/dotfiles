@@ -151,11 +151,17 @@ export EDITOR="$VISUAL"
 
 # Handy aliases
 alias nvimf='nvim $(fzf)'
+if [ -e $HOME/dotfiles/aliases ]; then
+  source $HOME/dotfiles/aliases
+fi
 
 # Add some override shims to PATH
 if [ -d ~/.override_shims ]; then
   export PATH="~/.override_shims:$PATH"
 fi
+
+# Make cd to common directories easier
+export CDPATH=.:~:~/Sites:~/Code
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 

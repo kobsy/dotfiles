@@ -1,0 +1,197 @@
+# bundler
+alias b="bundle"
+alias be="bundle exec"
+
+# ls
+alias ls="ls -G"
+alias l="ls -l"
+
+# psql
+alias p="psql -hlocalhost"
+
+# rbenv
+alias rb="rbenv local"
+alias rb-="rbenv local --unset"
+
+# rails
+alias rst="touch tmp/restart.txt"
+alias brs="bundle exec rails s"
+alias brc="bundle exec rails c"
+alias brg="bundle exec rails g"
+alias migrate="bundle exec rake db:migrate"
+
+# these interfere with zsh
+# alias test="bundle exec rake test"
+# alias test:all="bundle exec rake test:all"
+
+# s3cmd
+alias s3='s3cmd'
+
+# git
+alias g="git checkout"
+alias s="git status"
+alias ga="git add"
+alias gb="git checkout -b"
+alias gc="git commit -m"
+alias gc0="git commit --allow-empty -m"
+alias gca="ga . && git commit -am"
+alias gss="git stash save -u"
+alias gsp="git stash pop"
+alias grc="git rebase --continue"
+alias gl="git log --color --date=relative --format=format:'%C(cyan)%h%C(reset) %C(green)%ad %C(blue)(%an)%C(reset) %C(yellow)%d %C(reset)%s'"
+alias gl1="gl -1 | cat"
+alias gcommits="git shortlog -ns"
+alias gm="git merge --ff-only"
+alias gp="git push --tags "
+alias gu="git pull --ff-only --tags "
+alias gg="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(cyan)%h %C(green)%ad %C(yellow)%d %C(reset)%s %C(blue)(%an)%C(reset)'"
+alias gbr="git branch"
+alias gtrsh="git checkout --"
+alias gcopy='gl --pretty="%s" -1 | pbcopy'
+
+# Docker
+alias dcrails="docker compose run --rm rails rails"
+alias dcrake="docker compose run --rm rails rake"
+alias dcra="docker attach --detach-keys='ctrl-x' \$(docker compose ps -q rails)"
+alias dcember="docker compose run --rm ember yarn exec ember"
+alias dcets="docker compose run --rm -p 7357:7357 -d ember yarn start -e test -p 7357 && sleep 30 && open -a 'Google Chrome' http://localhost:7357/tests"
+alias dcpsql="docker compose run --rm db psql -U postgres -h host.docker.internal"
+
+function commitsnipe() {
+  shadowprint "git commit --amend --no-edit --reset-author"
+  git commit --amend --no-edit --reset-author
+}
+
+alias amend="SKIP_HOOKUP=TRUE git commit --amend"
+
+# Git Fetch and Merge; delete the branch upon success
+function gfmerge!() {
+  gf $1
+  gmerge! $1 $2
+}
+
+# Git Fetch and Merge
+function gfmerge() {
+  gf $1
+  gmerge $1 $2
+}
+
+# Git Fetch
+function gf() {
+  if [[ $# > 0 ]]; then
+    shadowprint "git fetch"
+    git fetch
+
+    # If the branch exists, delete it to be sure we've got the latest
+    git show-branch $1 &> /dev/null && gdelete $1
+
+    shadowprint "git checkout -b $1 origin/$1"
+    git checkout -b $1 origin/$1
+  else
+    shadowprint "git fetch --prune"
+    git fetch --prune
+  fi
+}
+
+# Git Delete the branch remotely and locally
+function gdelete!() {
+  # If the local branch exists, delete it too
+  git show-branch $1 &> /dev/null && gdelete $1
+
+  shadowprint "git push origin :$1"
+  git push origin :$1
+}
+
+# Git Delete the branch locally
+function gdelete() {
+  shadowprint "git branch -D $1"
+  git branch -D $1
+}
+
+# Git Merge; delete the branch upon success
+function gmerge!() {
+  if [ -z "$1" ]; then # Is parameter #1 zero length?
+    echo "USAGE: gmerge! topic-branch [dev]"
+  else
+    gmerge $1 $2 || { return 1; }
+    gdelete! $1
+  fi
+}
+
+# Git Merge: rebases topic branch before merging
+function gmerge() {
+  if [ -z "$1" ]; then # Is parameter #1 zero length?
+    echo "USAGE: gmerge topic-branch [dev]"
+  else
+    shadowprint "git checkout $1"
+    git checkout $1 || { return 1; }
+
+    shadowprint "git rebase ${2:-dev}"
+    git rebase ${2:-dev} || { return 1; }
+
+    shadowprint "git checkout ${2:-dev}"
+    git checkout ${2:-dev} || { return 1; }
+
+    shadowprint "git merge --ff-only $1"
+    git merge --ff-only $1 || { return 1; }
+  fi
+}
+
+function shadowprint() {
+  echo -e "\033[90m$1\033[0m"
+}
+
+function gs() {
+  if [ $1 ]; then
+    git show $*
+  else
+    gbranch
+    git show $current_branch
+  fi
+}
+
+function gd() {
+  if [ $1 ]; then
+    git diff $*
+  else
+    git diff --cached
+  fi
+}
+
+function ggrp() {
+  gl --grep=$1
+}
+
+function gfm() {
+  gf $*
+  gm FETCH_HEAD
+}
+
+function gbranch() {
+  current_branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
+}
+
+function gpo() {
+  # pushes the current branch; whatever that is
+  gbranch
+  while read line
+  do
+    echo $line
+    url=$(echo "$line" | grep -o -E "https://github.com/.+?/pull/new\S+" -)
+    if [[ -n "$url" ]]; then
+      echo $url | pbcopy
+    fi
+  done < <(gp origin $current_branch 2>&1)
+}
+
+function gpo!() {
+  # pushes the current branch; whatever that is
+  gbranch
+  gp -f --no-verify origin $current_branch
+}
+
+function guo() {
+  # pushes the current branch; whatever that is
+  gbranch
+  gu origin $current_branch
+}
