@@ -161,7 +161,7 @@ if [ -d ~/.override_shims ]; then
 fi
 
 # Make cd to common directories easier
-export CDPATH=.:~:~/Sites:~/Code
+export CDPATH=.:~:~/Sites:~/Code:~/Documents
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
