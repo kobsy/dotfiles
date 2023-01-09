@@ -17,6 +17,11 @@ Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'jparise/vim-graphql'
 
+if has('nvim')
+  Plug 'nvim-tree/nvim-web-devicons'
+  Plug 'nvim-tree/nvim-tree.lua'
+endif
+
 call plug#end()
 
 " Show line numbers
@@ -61,6 +66,29 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \   <bang>0)
 nnoremap <C-g> :Rg!<CR>
+
+" Set up nvim-tree
+if has('nvim')
+lua << EOF
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+-- set termguicolors to enable highlight groups
+vim.opt.termguicolors = true
+
+-- empty setup using defaults
+require("nvim-tree").setup({
+  open_on_setup = true,
+  update_focused_file = {
+    enable = true
+  }
+})
+EOF
+
+nnoremap <leader> :NvimTreeToggle<CR>
+
+endif
 
 " Show invisible characters
 set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:·
