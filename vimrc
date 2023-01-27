@@ -42,6 +42,9 @@ set backspace=indent,eol,start
 " turn on the mouse for moving buffers
 set mouse+=a
 
+" Turn on filetype-specific rules
+filetype plugin on
+
 " Buffer traversal commands
 nnoremap <silent> [b :bprevious!<CR>
 nnoremap <silent> ]b :bnext!<CR>
@@ -86,7 +89,8 @@ require("nvim-tree").setup({
 })
 EOF
 
-nnoremap <leader> :NvimTreeToggle<CR>
+nnoremap <leader>b :NvimTreeToggle<CR>
+nnoremap <leader>w :bd<CR>:bnext<CR>
 
 endif
 
