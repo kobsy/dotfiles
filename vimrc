@@ -54,12 +54,16 @@ nnoremap <silent> ]B :blast!<CR>
 " Fly between buffers
 nnoremap <leader>t :ls t<CR>:b<space>
 
+" Close the current buffer and move to the next buffer
+nnoremap <silent> <leader>w :bd<CR>:bnext!<CR>
+
 " Turn on syntax highlighting
 syntax on
 
 " fzf integration
 set rtp+=~/.fzf
 nnoremap <C-p> :Files<CR>
+nnoremap <leader>p :Files<CR>
 
 " Set up fzf to use ripgrep and omit filename matches
 command! -bang -nargs=* Rg
@@ -90,7 +94,6 @@ require("nvim-tree").setup({
 EOF
 
 nnoremap <leader>b :NvimTreeToggle<CR>
-nnoremap <leader>w :bd<CR>:bnext<CR>
 
 endif
 
