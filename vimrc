@@ -1,6 +1,7 @@
 " Initialize vim-plug
 call plug#begin('~/.vim/plugged')
 
+Plug 'joshdick/onedark.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -116,7 +117,10 @@ hi SpecialKey ctermfg=DarkGray
 hi Comment ctermfg=DarkGray
 
 " Use atom-dark color scheme
-colorscheme atom-dark-256
+" colorscheme atom-dark-256
+
+" Use one-dark color scheme
+colorscheme onedark
 
 " Autoindenting
 set autoindent
