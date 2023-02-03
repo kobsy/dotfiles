@@ -23,7 +23,9 @@ DEFAULT_USER="$(whoami)"
 # ZSH_THEME="gallifrey"
 # ZSH_THEME="intheloop"
 # ZSH_THEME="macovsky"
-ZSH_THEME="simple"
+# ZSH_THEME="simple"
+ZSH_THEME="dracula"
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
