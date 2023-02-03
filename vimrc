@@ -17,6 +17,7 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'jparise/vim-graphql'
+Plug 'christoomey/vim-tmux-navigator'
 
 if has('nvim')
   Plug 'nvim-tree/nvim-web-devicons'
