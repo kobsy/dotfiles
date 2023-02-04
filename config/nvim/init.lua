@@ -78,6 +78,7 @@ vim.opt.hidden = true
 -- Always show signcolumns
 vim.opt.signcolumn = 'yes'
 
+
 -- Airline settings
 -- Display tabline at top
 vim.cmd([[let g:airline#extensions#tabline#enabled = 1]])
@@ -87,6 +88,7 @@ vim.cmd([[let g:airline_powerline_fonts = 1]])
 
 -- Improve airline mode switching
 vim.opt.ttimeoutlen = 10
+
 
 -- Nvim-tree Settings
 -- disable netrw
@@ -105,4 +107,43 @@ require("nvim-tree").setup({
 
 -- Map <leader>b to toggle show/hide the tree
 vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>')
+
+
+-- LSP Setup
+-- Mappings
+local opts = { noremap = true, silent = true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnum)
+  -- Enable completion triggered by <c-x><c-o>
+  vim.api.nvim_buf_set_option(bufnum, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+  -- Mappings
+  local bufopts = { noremap = true, silent = true, buffer = bufnum }
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<space>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, bufopts)
+  vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
+  vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+  vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
+end
+
+require('lspconfig')['ember'].setup{ on_attach = on_attach }
+require('lspconfig')['eslint'].setup{ on_attach = on_attach }
+require('lspconfig')['solargraph'].setup{ on_attach = on_attach }
+require('lspconfig')['sourcekit'].setup{ on_attach = on_attach }
 
