@@ -144,6 +144,11 @@ if which pyenv > /dev/null; then
   eval "$(pyenv init -)"
 fi
 
+# Enable latest toolchain for swift
+if which swift > /dev/null; then
+  export TOOLCHAINS=swift
+fi
+
 # Have fzf use ripgrep by default
 export FZF_DEFAULT_COMMAND="rg --files --hidden"
 
