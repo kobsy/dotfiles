@@ -1,6 +1,8 @@
 **/fishd*
 config/nvim/plugged
 config/nvim/plugged/**
+config/nvim/plugin
+config/nvim/plugin/**
 vim/.netrwhist
 vim/swap
 vim/plugged
