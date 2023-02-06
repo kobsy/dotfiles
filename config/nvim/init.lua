@@ -38,13 +38,14 @@ vim.keymap.set('n', '<C-p>', ':Files<CR>')
 vim.keymap.set('n', '<leader>p', ':Files<CR>')
 
 -- Set up project-wide search using fzf and ripgrep, omitting filename matches
-vim.api.nvim_create_user_command('Rg', [[
-  call fzf#vim#grep(
-    'rg --column --line-number --hidden --no-heading --color=always '.shellescape(<q-args>), 1,
-    <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-    : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
-    <bang>0)
-  ]], { bang = true, nargs = '*' })
+vim.cmd([[
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --hidden --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   <bang>0)
+]])
 vim.keymap.set('n', '<C-g>', ':Rg!<CR>')
 
 -- Show invisible characters
