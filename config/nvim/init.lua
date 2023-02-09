@@ -48,6 +48,16 @@ command! -bang -nargs=* Rg
 ]])
 vim.keymap.set('n', '<C-g>', ':Rg!<CR>')
 
+-- Ack and Ripgrep searching
+vim.cmd([[
+  " Use ripgrep for searching
+  let g:ackprg = 'rg --vimgrep --smart-case'
+
+  " Any empty ack search will search for the word the cursor is on
+  let g:ack_use_cword_for_empty_search = 1
+]])
+vim.keymap.set('n', '<leader>g', ':Ack!<space>')
+
 -- Show invisible characters
 vim.opt.listchars = { eol = '¬', tab = '>·', trail = '~', extends = '>', precedes = '<', space = '·' }
 vim.opt.list = true
