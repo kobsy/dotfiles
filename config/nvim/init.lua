@@ -26,6 +26,10 @@ vim.keymap.set('n', ']b', ':bnext!<CR>', { silent = true })
 vim.keymap.set('n', '[B', ':bfirst!<CR>', { silent = true })
 vim.keymap.set('n', ']B', ':blast!<CR>', { silent = true })
 
+-- Quickfix traversal commands
+vim.keymap.set('n', '[q', ':cprevious<CR>', { silent = true })
+vim.keymap.set('n', ']q', ':cnext<CR>', { silent = true })
+
 -- Fly between buffers
 vim.keymap.set('n', '<leader>t', ':ls t<CR>:b<space>')
 
