@@ -1,1 +1,1 @@
-/Users/kobsmc/.fzf/shell/key-bindings.fish
+source ~/.fzf/shell/key-bindings.fish
