@@ -109,6 +109,8 @@ vim.opt.ttimeoutlen = 10
 -- disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+-- but define a Browse command so GBrowse can still work
+vim.cmd([[command! -nargs=1 Browse silent execute '!open' shellescape(<q-args>,1)]])
 
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
