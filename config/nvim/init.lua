@@ -3,6 +3,9 @@ require('plugins')
 -- Show line numbers
 vim.opt.number = true
 
+-- Highlight the line the cursor is on
+vim.opt.cursorline = true
+
 -- Expand tabs to spaces, 2 spaces wide
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
