@@ -23,6 +23,9 @@ vim.opt.backspace = { 'indent', 'eol', 'start' }
 -- turn on the mouse for moving buffers
 vim.opt.mouse = 'a'
 
+-- Display command line's tab complete options as a menu
+vim.opt.wildmenu = true
+
 -- Buffer traversal commands
 vim.keymap.set('n', '[b', ':bprevious!<CR>', { silent = true })
 vim.keymap.set('n', ']b', ':bnext!<CR>', { silent = true })
