@@ -86,8 +86,12 @@ vim.opt.smartindent = true
 -- vim-gitgutter settings
 vim.opt.updatetime = 100
 
--- Store swap files in the home directory instead of cluttering up repos
+-- Store swap and undo files in the home directory instead of cluttering up repos
 vim.opt.directory:prepend({ "$HOME/.vim/swap/" })
+vim.opt.undodir:prepend({ "$HOME/.vim/undo/" })
+
+-- Go ahead and persist undo history
+vim.opt.undofile = true
 
 -- Some lsp servers have issues with backup files; probably good for git, too
 vim.opt.backup = false
