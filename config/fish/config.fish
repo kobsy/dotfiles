@@ -51,5 +51,8 @@ end
 # Make cd to common directories easier
 set -x CDPATH . ~ ~/Sites ~/Code ~/Documents
 
+# Avoid a weird OBJC error with Ruby
+set -x OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
+
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 set -g fish_user_paths "/usr/local/opt/postgresql@11/bin" $fish_user_paths
