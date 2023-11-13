@@ -36,6 +36,11 @@ end
 # Allow finding the subl commmand
 set -x PATH $PATH /Applications/Sublime\ Text.app/Contents/SharedSupport/bin
 
+# Preempt the path for postgres CLI tools
+if test -d /Applications/Postgres.app/Contents/Versions/latest/bin
+  set -x PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
+end
+
 # Have fzf use ripgrep by default
 set -gx FZF_DEFAULT_COMMAND "rg --files --hidden"
 
