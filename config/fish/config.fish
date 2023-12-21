@@ -53,6 +53,11 @@ if test -d ~/.override_shims
   set -x PATH ~/.override_shims $PATH
 end
 
+# Add local python bin to PATH
+if test -d ~/.local/bin
+  set -x PATH ~/.local/bin $PATH
+end
+
 # Make cd to common directories easier
 set -x CDPATH . ~ ~/Sites ~/Code ~/Documents
 
