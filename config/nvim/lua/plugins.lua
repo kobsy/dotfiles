@@ -18,7 +18,6 @@ return require('packer').startup(function(use)
   use { 'dracula/vim', as = 'dracula' }
   use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
   use 'junegunn/fzf.vim'
-  use 'mileszs/ack.vim'
   use 'tomtom/tcomment_vim'
   use 'vim-airline/vim-airline'
   use 'kchmck/vim-coffee-script'
