@@ -32,6 +32,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-rake'
   use 'tpope/vim-obsession'
   use 'tpope/vim-dispatch'
+  use 'mhinz/vim-grepper'
   use 'jparise/vim-graphql'
   use 'christoomey/vim-tmux-navigator'
   use 'nvim-tree/nvim-web-devicons'
