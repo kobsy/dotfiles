@@ -62,6 +62,9 @@ vim.keymap.set('n', '<C-g>', ':Rg!<CR>')
 vim.keymap.set('n', '<leader>g', ':Grepper -tool rg -grepprg rg -H --no-heading --vimgrep --smart-case<CR>')
 vim.keymap.set('n', '<leader>G', ':Grepper<CR>')
 
+-- Testing config
+vim.g['test#strategy'] = 'dispatch'
+
 -- Show invisible characters
 vim.opt.listchars = { eol = '¬', tab = '>·', trail = '~', extends = '>', precedes = '<', space = '·' }
 vim.opt.list = true
