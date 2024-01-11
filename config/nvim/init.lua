@@ -37,7 +37,7 @@ vim.keymap.set('n', '[q', ':cprevious<CR>', { silent = true })
 vim.keymap.set('n', ']q', ':cnext<CR>', { silent = true })
 
 -- Fly between buffers
-vim.keymap.set('n', '<leader>t', ':ls t<CR>:b<space>')
+vim.keymap.set('n', '<leader>r', ':ls t<CR>:b<space>')
 
 -- Close the current buffer and move to the next buffer
 vim.keymap.set('n', '<leader>w', ':bd<CR>:bnext!<CR>', { silent = true })
@@ -64,6 +64,8 @@ vim.keymap.set('n', '<leader>G', ':Grepper<CR>')
 
 -- Testing config
 vim.g['test#strategy'] = 'dispatch'
+vim.keymap.set('n', '<leader>t', ':TestFile<CR>')
+vim.keymap.set('n', '<leader>T', ':TestNearest<CR>')
 
 -- Show invisible characters
 vim.opt.listchars = { eol = '¬', tab = '>·', trail = '~', extends = '>', precedes = '<', space = '·' }
