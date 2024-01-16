@@ -33,6 +33,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-dispatch'
   use 'mhinz/vim-grepper'
   use 'vim-test/vim-test'
+  use 'editorconfig/editorconfig-vim'
   use 'jparise/vim-graphql'
   use 'christoomey/vim-tmux-navigator'
   use 'nvim-tree/nvim-web-devicons'
