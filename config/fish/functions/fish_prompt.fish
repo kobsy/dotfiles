@@ -10,7 +10,11 @@ function fish_prompt
 
   printf " (%s@%s) " (whoami) (prompt_hostname)
 
-  printf "%s" (__fish_git_prompt "[%s]")
+  if jj show &> /dev/null;
+    printf "[%s]" (jj show -T 'self.parents().map(|c| c.change_id().shortest() ++ surround("(", ")", c.branches().join(","))).join(",") ++ ">" ++ self.change_id().shortest()')
+  else;
+    printf "%s" (__fish_git_prompt "[%s]")
+  end
 
   echo
 
