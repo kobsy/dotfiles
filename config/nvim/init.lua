@@ -45,7 +45,7 @@ vim.keymap.set('n', '<leader>w', ':bd<CR>:bnext!<CR>', { silent = true })
 -- fzf integration
 vim.opt.runtimepath:append('~/.fzf')
 vim.keymap.set('n', '<C-p>', ':Files<CR>')
-vim.keymap.set('n', '<leader>p', ':Files<CR>')
+vim.keymap.set('n', '<leader>f', ':Files<CR>')
 
 -- Set up project-wide search using fzf and ripgrep, omitting filename matches
 vim.cmd([[
