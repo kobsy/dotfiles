@@ -41,6 +41,11 @@ if test -d /Applications/Postgres.app/Contents/Versions/latest/bin
   set -x PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
 end
 
+# Add rust to the path
+if test -d ~/.cargo/bin
+  set -x PATH ~/.cargo/bin $PATH
+end
+
 # Have fzf use ripgrep by default
 set -gx FZF_DEFAULT_COMMAND "rg --files --hidden"
 
@@ -66,3 +71,10 @@ set -x OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 set -g fish_user_paths "/usr/local/opt/postgresql@11/bin" $fish_user_paths
+
+# pnpm
+set -gx PNPM_HOME "/Users/kobsmc/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
