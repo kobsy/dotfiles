@@ -36,36 +36,17 @@ vim.keymap.set('n', ']B', ':blast!<CR>', { silent = true })
 vim.keymap.set('n', '[q', ':cprevious<CR>', { silent = true })
 vim.keymap.set('n', ']q', ':cnext<CR>', { silent = true })
 
--- Fly between buffers
-vim.keymap.set('n', '<leader>r', ':ls t<CR>:b<space>')
-
 -- Close the current buffer and move to the next buffer
 vim.keymap.set('n', '<leader>w', ':bd<CR>:bnext!<CR>', { silent = true })
 
--- fzf integration
-vim.opt.runtimepath:append('~/.fzf')
-vim.keymap.set('n', '<C-p>', ':Files<CR>')
-vim.keymap.set('n', '<leader>f', ':Files<CR>')
+-- fzf mappings
+vim.opt.runtimepath:append({ '~/.fzf' })
+vim.keymap.set('n', '<leader>F', ':Files<CR>')
 
--- Set up project-wide search using fzf and ripgrep, omitting filename matches
-vim.cmd([[
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --hidden --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
-  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
-  \   <bang>0)
-]])
-vim.keymap.set('n', '<C-g>', ':Rg!<CR>')
-
--- Grepper config
-vim.keymap.set('n', '<leader>g', ':Grepper -tool rg -grepprg rg -H --no-heading --vimgrep --smart-case<CR>')
-vim.keymap.set('n', '<leader>G', ':Grepper<CR>')
-
--- Testing config
-vim.g['test#strategy'] = 'dispatch'
-vim.keymap.set('n', '<leader>t', ':TestFile<CR>')
-vim.keymap.set('n', '<leader>T', ':TestNearest<CR>')
+-- Telescope mappings
+vim.keymap.set('n', '<leader>f', ':Telescope find_files<CR>')
+vim.keymap.set('n', '<leader>r', ':Telescope buffers<CR>')
+vim.keymap.set('n', '<leader>g', ':Telescope live_grep<CR>')
 
 -- Show invisible characters
 vim.opt.listchars = { eol = '¬', tab = '>·', trail = '~', extends = '>', precedes = '<', space = '·' }

@@ -16,7 +16,6 @@ return require('packer').startup(function(use)
 
   -- My Plugins
   use { 'dracula/vim', as = 'dracula' }
-  use { 'junegunn/fzf', run = function() vim.fn['fzf#install']() end }
   use 'junegunn/fzf.vim'
   use 'tomtom/tcomment_vim'
   use 'vim-airline/vim-airline'
@@ -31,8 +30,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-rake'
   use 'tpope/vim-obsession'
   use 'tpope/vim-dispatch'
-  use 'mhinz/vim-grepper'
-  use 'vim-test/vim-test'
   use 'editorconfig/editorconfig-vim'
   use 'jparise/vim-graphql'
   use 'christoomey/vim-tmux-navigator'
@@ -44,6 +41,20 @@ return require('packer').startup(function(use)
         'nvim-tree/nvim-web-devicons',
         'MunifTanjim/nui.nvim'
       }
+  }
+  use {
+    'nvim-telescope/telescope.nvim',
+      branch = '0.1.x',
+      dependencies = {
+        'nvim-lua/plenary.nvim'
+      },
+  }
+  use {
+    'nvim-treesitter/nvim-treesitter',
+      run = function()
+        local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+        ts_update()
+      end,
   }
 
   -- LSP, etc.
