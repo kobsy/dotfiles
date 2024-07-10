@@ -114,25 +114,12 @@ vim.cmd([[let g:airline_powerline_fonts = 1]])
 vim.opt.ttimeoutlen = 10
 
 
--- Nvim-tree Settings
--- disable netrw
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
--- but define a Browse command so GBrowse can still work
-vim.cmd([[command! -nargs=1 Browse silent execute '!open' shellescape(<q-args>,1)]])
-
+-- Neotree settings
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
--- empty setup using defaults
-require("nvim-tree").setup({
-  update_focused_file = {
-    enable = true
-  }
-})
-
 -- Map <leader>b to toggle show/hide the tree
-vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<leader>b', ':Neotree toggle<CR>')
 
 
 -- LSP Setup

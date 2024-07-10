@@ -36,8 +36,15 @@ return require('packer').startup(function(use)
   use 'editorconfig/editorconfig-vim'
   use 'jparise/vim-graphql'
   use 'christoomey/vim-tmux-navigator'
-  use 'nvim-tree/nvim-web-devicons'
-  use 'nvim-tree/nvim-tree.lua'
+  use {
+    'nvim-neo-tree/neo-tree.nvim',
+      branch = 'v3.x',
+      requires = {
+        'nvim-lua/plenary.nvim',
+        'nvim-tree/nvim-web-devicons',
+        'MunifTanjim/nui.nvim'
+      }
+  }
 
   -- LSP, etc.
   use 'neovim/nvim-lspconfig'
