@@ -26,8 +26,6 @@ return require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-surround'
   use 'tpope/vim-bundler'
-  -- use 'tpope/vim-rails'
-  -- use 'tpope/vim-rake'
   use 'tpope/vim-obsession'
   use 'tpope/vim-dispatch'
   use 'editorconfig/editorconfig-vim'
@@ -55,6 +53,10 @@ return require('packer').startup(function(use)
         local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
         ts_update()
       end,
+  }
+  use {
+    'nvim-telescope/telescope-fzf-native.nvim',
+      run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
   }
 
   -- LSP, etc.

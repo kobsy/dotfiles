@@ -45,8 +45,10 @@ vim.keymap.set('n', '<leader>F', ':Files<CR>')
 
 -- Telescope mappings
 vim.keymap.set('n', '<leader>f', ':Telescope find_files<CR>')
-vim.keymap.set('n', '<leader>r', ':Telescope buffers<CR>')
+vim.keymap.set('n', '<leader>t', ':Telescope buffers<CR>')
 vim.keymap.set('n', '<leader>g', ':Telescope live_grep<CR>')
+vim.keymap.set('n', '<leader>r', ':Telescope treesitter<CR>')
+vim.keymap.set('n', '<leader>d', ':Telescope diagnostics<CR>')
 
 -- Show invisible characters
 vim.opt.listchars = { eol = '¬', tab = '>·', trail = '~', extends = '>', precedes = '<', space = '·' }
@@ -90,6 +92,9 @@ vim.cmd([[let g:airline#extensions#tabline#enabled = 1]])
 vim.cmd([[let g:airline#extensions#tabline#formatter = 'unique_tail_improved']])
 -- Powerline symbols in airline
 vim.cmd([[let g:airline_powerline_fonts = 1]])
+-- Disable/enable Airline extensions
+vim.cmd([[let g:airline#extensions#branch#enabled = 0]])
+vim.cmd([[let g:airline#extensions#nvimlsp#enabled = 1]])
 
 -- Improve airline mode switching
 vim.opt.ttimeoutlen = 10
@@ -101,6 +106,31 @@ vim.opt.termguicolors = true
 
 -- Map <leader>b to toggle show/hide the tree
 vim.keymap.set('n', '<leader>b', ':Neotree toggle<CR>')
+
+
+-- Telescope Setup
+require('telescope').setup {
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = 'smart_case',
+    }
+  }
+}
+
+require('telescope').load_extension('fzf')
+
+
+-- Treesitter Setup
+require('nvim-treesitter').setup {
+  ensure_installed = { "ruby", "javascript", "html", "css", "json", "yaml", "graphql", "markdown", "vim", "lua", "vimdoc", "markdown_inline", "embedded_template", "glimmer" },
+  auto_install = true,
+  highlight = {
+    enable = true
+  }
+}
 
 
 -- LSP Setup
