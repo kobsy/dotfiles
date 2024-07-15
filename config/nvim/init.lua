@@ -138,7 +138,7 @@ end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 local lspconfig = require('lspconfig')
-local servers = { 'ember', 'eslint', 'sourcekit' }
+local servers = { 'ember', 'eslint', 'ruby_lsp', 'sourcekit' }
 
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
@@ -147,18 +147,18 @@ for _, lsp in ipairs(servers) do
   }
 end
 
--- Ruby linter setup
-vim.opt.signcolumn = "yes"
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "ruby",
-  group = vim.api.nvim_create_augroup("RubyLSP", { clear = true }),
-  callback = function()
-    vim.lsp.start {
-      name = "rubocop",
-      cmd = { "bundle", "exec", "rubocop", "--lsp" },
-    }
-  end,
-})
+-- -- Ruby linter setup
+-- vim.opt.signcolumn = "yes"
+-- vim.api.nvim_create_autocmd("FileType", {
+--   pattern = "ruby",
+--   group = vim.api.nvim_create_augroup("RubyLSP", { clear = true }),
+--   callback = function()
+--     vim.lsp.start {
+--       name = "rubocop",
+--       cmd = { "bundle", "exec", "rubocop", "--lsp" },
+--     }
+--   end,
+-- })
 
 -- luasnip setup
 local luasnip = require 'luasnip'
