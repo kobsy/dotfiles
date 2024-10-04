@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 -- Font configuration
-config.font = wezterm.font 'Source Code Pro'
+config.font = wezterm.font('Source Code Pro', { weight = 'Medium' })
 config.font_size = 13.0
 
 -- Window configuration
