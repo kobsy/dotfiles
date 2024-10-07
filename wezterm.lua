@@ -6,7 +6,14 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 -- Font configuration
-config.font = wezterm.font('Source Code Pro', { weight = 'Medium' })
+-- config.font = wezterm.font('Source Code Pro', { weight = 'Medium' })
+-- config.font = wezterm.font('Cascadia Mono NF')
+-- config.font = wezterm.font('Zed Mono')
+config.font = wezterm.font('Monaspace Neon', { weight = 'Regular' })
+-- config.font = wezterm.font('Bitstream Vera Sans Mono')
+-- config.font = wezterm.font('Monocraft')
+-- config.font = wezterm.font('Px437 IBM VGA 9x16')
+
 config.font_size = 13.0
 
 -- Window configuration
