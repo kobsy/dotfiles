@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-bundler'
   use 'tpope/vim-obsession'
   use 'tpope/vim-dispatch'
+  use 'chrisbra/matchit'
   use 'editorconfig/editorconfig-vim'
   use 'jparise/vim-graphql'
   use 'christoomey/vim-tmux-navigator'
