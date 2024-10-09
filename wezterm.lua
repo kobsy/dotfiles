@@ -6,15 +6,21 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 -- Font configuration
--- config.font = wezterm.font('Source Code Pro', { weight = 'Medium' })
--- config.font = wezterm.font('Cascadia Mono NF')
--- config.font = wezterm.font('Zed Mono')
-config.font = wezterm.font('Monaspace Neon', { weight = 'Regular' })
 -- config.font = wezterm.font('Bitstream Vera Sans Mono')
+-- config.font = wezterm.font('Cascadia Mono NF')
+-- config.font = wezterm.font('Departure Mono')
+config.font = wezterm.font('IBM Plex Mono')
+-- config.font = wezterm.font('Monaspace Argon', { weight = 'Regular' })
+-- config.font = wezterm.font('Monaspace Krypton', { weight = 'Regular' })
+-- config.font = wezterm.font('Monaspace Neon', { weight = 'Regular' })
 -- config.font = wezterm.font('Monocraft')
+-- config.font = wezterm.font('PT Mono')
 -- config.font = wezterm.font('Px437 IBM VGA 9x16')
+-- config.font = wezterm.font('Source Code Pro', { weight = 'Medium' })
+-- config.font = wezterm.font('Zed Mono')
 
 config.font_size = 13.0
+config.freetype_load_target = 'Light'
 
 -- Window configuration
 config.hide_tab_bar_if_only_one_tab = true
