@@ -31,6 +31,9 @@ config.window_frame = {
   font_size = 12.0
 }
 
+-- Improve font rendering by using the WebGPU
+config.front_end = "WebGpu"
+
 -- Color scheme
 config.color_scheme = 'Dracula'
 
