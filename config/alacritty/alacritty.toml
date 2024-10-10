@@ -3,8 +3,8 @@ import = [
 ]
 
 [font]
-normal = { family = "Source Code Pro", style = "Regular" }
-size = 13.0
+normal = { family = "CommitMono Nerd Font" }
+size = 14.0
 
 [window]
 padding = { x = 4, y = 4 }
