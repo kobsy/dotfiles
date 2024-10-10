@@ -101,6 +101,28 @@ vim.opt.ttimeoutlen = 10
 
 
 -- Neotree settings
+require('neo-tree').setup {
+  sources = { 'filesystem', 'buffers', 'git_status' },
+  filesystem = {
+    follow_current_file = { enabled = true },
+    use_libuv_file_watcher = true,
+  },
+  default_component_configs = {
+    indent = {
+      with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
+      expander_collapsed = '',
+      expander_expanded = '',
+      expander_highlight = 'NeoTreeExpander',
+    },
+    git_status = {
+      symbols = {
+        unstaged = '󰄱',
+        staged = '󰱒',
+      },
+    },
+  },
+}
+
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
@@ -176,19 +198,6 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
-
--- -- Ruby linter setup
--- vim.opt.signcolumn = "yes"
--- vim.api.nvim_create_autocmd("FileType", {
---   pattern = "ruby",
---   group = vim.api.nvim_create_augroup("RubyLSP", { clear = true }),
---   callback = function()
---     vim.lsp.start {
---       name = "rubocop",
---       cmd = { "bundle", "exec", "rubocop", "--lsp" },
---     }
---   end,
--- })
 
 -- luasnip setup
 local luasnip = require 'luasnip'
