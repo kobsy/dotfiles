@@ -59,6 +59,13 @@ return require('packer').startup(function(use)
     'nvim-telescope/telescope-fzf-native.nvim',
       run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
   }
+  use {
+    'folke/noice.nvim',
+      requires = {
+        'MunifTanjim/nui.nvim',
+        'rcarriga/nvim-notify',
+      },
+  }
 
   -- LSP, etc.
   use 'neovim/nvim-lspconfig'
