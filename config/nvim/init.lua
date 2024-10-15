@@ -44,7 +44,7 @@ vim.opt.runtimepath:append({ '~/.fzf' })
 vim.keymap.set('n', '<leader>F', ':Files<CR>')
 
 -- Telescope mappings
-vim.keymap.set('n', '<leader>f', ':Telescope find_files<CR>')
+vim.keymap.set('n', '<leader>f', ':Telescope git_files<CR>')
 vim.keymap.set('n', '<leader>t', ':Telescope buffers<CR>')
 vim.keymap.set('n', '<leader>g', ':Telescope live_grep<CR>')
 vim.keymap.set('n', '<leader>r', ':Telescope treesitter<CR>')
