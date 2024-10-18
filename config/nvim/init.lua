@@ -86,6 +86,14 @@ vim.opt.hidden = true
 -- Always show signcolumns
 vim.opt.signcolumn = 'yes'
 
+-- Wrap by whole words when the file type is markdown
+vim.cmd([[
+  augroup WrapLineInMD
+    autocmd!
+    autocmd FileType markdown setlocal linebreak
+  augroup END
+]])
+
 
 -- Airline settings
 -- Display tabline at top
