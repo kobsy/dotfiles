@@ -1,5 +1,12 @@
 # Font
-font-family = CommitMono Nerd Font
+font-family = "CommitMono Nerd Font"
+font-size = 14
 
 # Theme
 theme = Dracula
+
+# Appearance
+background-opacity = 0.8
+background-blur-radius = 20
+window-padding-x = 4
+window-padding-y = 4
