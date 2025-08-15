@@ -15,6 +15,9 @@ link-url = true
 window-padding-x = 4
 window-padding-y = 4
 
+# Because macOS
+macos-option-as-alt = true
+
 # Shaders!
 # custom-shader = /Users/kobsmc/.config/ghostty-shaders/inside-the-matrix.glsl
 # custom-shader = /Users/kobsmc/.config/ghostty-shaders/starfield.glsl

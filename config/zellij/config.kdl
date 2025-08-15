@@ -1,5 +1,9 @@
 // If you'd like to override the default keybindings completely, be sure to change "keybinds" to "keybinds clear-defaults=true"
 keybinds {
+    unbind "Alt Left"
+    unbind "Alt Right"
+    unbind "Alt Down"
+    unbind "Alt Up"
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
@@ -158,7 +162,6 @@ keybinds {
         bind "Alt -" { Resize "Decrease"; }
         bind "Alt [" { PreviousSwapLayout; }
         bind "Alt ]" { NextSwapLayout; }
-        unbind "Alt Left" "Alt Right" "Alt Down" "Alt Up"
     }
     shared_except "normal" "locked" {
         bind "Enter" "Esc" { SwitchToMode "Normal"; }
@@ -190,7 +193,9 @@ plugins {
     tab-bar location="zellij:tab-bar"
     status-bar location="zellij:status-bar"
     strider location="zellij:strider"
-    compact-bar location="zellij:compact-bar"
+    compact-bar location="zellij:compact-bar" {
+      tooltip "F1" // choose a keybinding to toggle the hints
+    }
     session-manager location="zellij:session-manager"
     welcome-screen location="zellij:session-manager" {
         welcome_screen true
@@ -261,31 +266,33 @@ plugins {
 // For more examples, see: https://github.com/zellij-org/zellij/tree/main/example/themes
 // Once these themes are defined, one of them should to be selected in the "theme" section of this file
 //
- themes {
-     dracula {
-         fg 248 248 242
-         bg 40 42 54
-         red 255 85 85
-         green 80 250 123
-         yellow 241 250 140
-         blue 98 114 164
-         magenta 255 121 198
-         orange 255 184 108
-         cyan 139 233 253
-         black 0 0 0
-         white 255 255 255
-     }
- }
+ // themes {
+ //     dracula {
+ //         fg 248 248 242
+ //         bg 40 42 54
+ //         red 255 85 85
+ //         green 80 250 123
+ //         yellow 241 250 140
+ //         blue 98 114 164
+ //         magenta 255 121 198
+ //         orange 255 184 108
+ //         cyan 139 233 253
+ //         black 0 0 0
+ //         white 255 255 255
+ //     }
+ // }
 
 // Choose the theme that is specified in the themes section.
 // Default: default
 //
-theme "dracula"
+// theme "dracula"
+theme "catppuccin-mocha"
+// theme "catppuccin-macchiato"
 
 // The name of the default layout to load on startup
 // Default: "default"
 //
-// default_layout "compact"
+default_layout "compact"
 
 // Choose the mode that zellij uses when starting up.
 // Default: normal
