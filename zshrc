@@ -11,6 +11,13 @@ export ZSH="$HOME/.oh-my-zsh"
 
 DEFAULT_USER="$(whoami)"
 
+# Load up Spaceship if it's available; fall back to Dracula theme
+if [[ -f /opt/homebrew/opt/spaceship/spaceship.zsh ]]; then
+  source "/opt/homebrew/opt/spaceship/spaceship.zsh"
+else
+  ZSH_THEME="dracula"
+fi
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -24,7 +31,7 @@ DEFAULT_USER="$(whoami)"
 # ZSH_THEME="intheloop"
 # ZSH_THEME="macovsky"
 # ZSH_THEME="simple"
-ZSH_THEME="dracula"
+# ZSH_THEME="dracula"
 
 
 # Set list of themes to pick from when loading at random
@@ -87,7 +94,8 @@ zstyle ':omz:update' frequency 13
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf git iterm2 macos zsh-autosuggestions)
+# plugins=(fzf git iterm2 macos zsh-autosuggestions)
+plugins=(fzf macos zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
