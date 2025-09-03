@@ -1,5 +1,7 @@
 # Font
-font-family = "CommitMono Nerd Font"
+# font-family = "CommitMono Nerd Font"
+# font-family = "SauceCodePro Nerd Font Mono"
+font-family = "CaskaydiaMono Nerd Font"
 font-size = 14
 font-thicken = true
 
