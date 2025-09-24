@@ -14,7 +14,7 @@ if test -e /opt/homebrew/bin/brew
 end
 
 # Rbenv Config
-if test -d "$HOME/.rbenv"
+if which rbenv >/dev/null
     set -x RBENV_ROOT "$HOME/.rbenv"
     status --is-interactive; and source (rbenv init -|psub)
 end
@@ -83,3 +83,7 @@ end
 if test -z "$OPEN_WEATHER_API_KEY" && which op >/dev/null
     set -x OPEN_WEATHER_API_KEY (op item get b55fuwastwi5urgkljkbu73cqu --reveal --field credential --account BNZ3QABYSJBVJBHWEQQSE6MKRE)
 end
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :
