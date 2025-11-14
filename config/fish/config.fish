@@ -33,16 +33,8 @@ if which pyenv >/dev/null
     status --is-interactive; and . (pyenv init -|psub)
 end
 
-# Allow finding the subl commmand
-set -x PATH $PATH /Applications/Sublime\ Text.app/Contents/SharedSupport/bin
-
-# Preempt the path for postgres CLI tools
-if test -d /Applications/Postgres.app/Contents/Versions/latest/bin
-    set -x PATH /Applications/Postgres.app/Contents/Versions/latest/bin $PATH
-end
-
 # Add rust to the path
-if test -d ~/.cargo/bin
+if test -e ~/.cargo/bin
     set -x PATH ~/.cargo/bin $PATH
 end
 
@@ -54,12 +46,12 @@ set -x VISUAL nvim
 set -x EDITOR "$VISUAL"
 
 # Add some override shims to PATH
-if test -d ~/.override_shims
+if test -e ~/.override_shims
     set -x PATH ~/.override_shims $PATH
 end
 
 # Add local python bin to PATH
-if test -d ~/.local/bin
+if test -e ~/.local/bin
     set -x PATH ~/.local/bin $PATH
 end
 
@@ -68,9 +60,6 @@ set -x CDPATH . ~ ~/Sites ~/Code ~/Documents
 
 # Avoid a weird OBJC error with Ruby
 set -x OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
-
-test -e {$HOME}/.iterm2_shell_integration.fish; and source {$HOME}/.iterm2_shell_integration.fish
-set -g fish_user_paths "/usr/local/opt/postgresql@11/bin" $fish_user_paths
 
 # pnpm
 set -gx PNPM_HOME /Users/kobsmc/Library/pnpm
@@ -84,6 +73,8 @@ if test -z "$OPEN_WEATHER_API_KEY" && which op >/dev/null
     set -x OPEN_WEATHER_API_KEY (op item get b55fuwastwi5urgkljkbu73cqu --reveal --field credential --account BNZ3QABYSJBVJBHWEQQSE6MKRE)
 end
 
-# Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
-source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+if test -f ~/.orbstack/shell/init2.fish
+    # Added by OrbStack: command-line tools and integration
+    # This won't be added again if you remove it.
+    source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+end
