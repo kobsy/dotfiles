@@ -78,3 +78,9 @@ if test -f ~/.orbstack/shell/init2.fish
     # This won't be added again if you remove it.
     source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 end
+
+# rv
+if test -f /opt/homebrew/bin/rv
+    /opt/homebrew/bin/rv shell init fish | source
+    /opt/homebrew/bin/rv shell completions fish | source
+end
