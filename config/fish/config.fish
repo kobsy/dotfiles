@@ -69,9 +69,9 @@ end
 # pnpm end
 
 # For tmux-clima; credentials stored in 1Password
-if test -z "$OPEN_WEATHER_API_KEY" && which op >/dev/null
-    set -x OPEN_WEATHER_API_KEY (op item get b55fuwastwi5urgkljkbu73cqu --reveal --field credential --account BNZ3QABYSJBVJBHWEQQSE6MKRE)
-end
+# if test -z "$OPEN_WEATHER_API_KEY" && which op >/dev/null
+#     set -x OPEN_WEATHER_API_KEY (op item get b55fuwastwi5urgkljkbu73cqu --reveal --field credential --account BNZ3QABYSJBVJBHWEQQSE6MKRE)
+# end
 
 if test -f ~/.orbstack/shell/init2.fish
     # Added by OrbStack: command-line tools and integration
