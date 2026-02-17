@@ -84,3 +84,7 @@ if test -f /opt/homebrew/bin/rv
     /opt/homebrew/bin/rv shell init fish | source
     /opt/homebrew/bin/rv shell completions fish | source
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
