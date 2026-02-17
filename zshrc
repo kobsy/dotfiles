@@ -138,19 +138,19 @@ if [ -e /opt/homebrew/bin/brew ]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-# Rbenv Config
-if [ -d "$HOME/.rbenv" ]; then
-  export RBENV_ROOT="$HOME/.rbenv"
-  eval "$(rbenv init - zsh)"
-fi
-
-if which nodenv > /dev/null; then
-  eval "$(nodenv init - zsh)"
-fi
-
-if which pyenv > /dev/null; then
-  eval "$(pyenv init -)"
-fi
+# # Rbenv Config
+# if [ -d "$HOME/.rbenv" ]; then
+#   export RBENV_ROOT="$HOME/.rbenv"
+#   eval "$(rbenv init - zsh)"
+# fi
+#
+# if which nodenv > /dev/null; then
+#   eval "$(nodenv init - zsh)"
+# fi
+#
+# if which pyenv > /dev/null; then
+#   eval "$(pyenv init -)"
+# fi
 
 # Enable latest toolchain for swift
 if which swift > /dev/null; then
