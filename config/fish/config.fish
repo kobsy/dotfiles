@@ -61,6 +61,14 @@ set -x CDPATH . ~ ~/Sites ~/Code ~/Documents
 # Avoid a weird OBJC error with Ruby
 set -x OBJC_DISABLE_INITIALIZE_FORK_SAFETY YES
 
+# Avoid a weird error with Ruby's pg gem
+set -x PGGSSENCMODE disable
+
+# Find the Perl Git library installed by Xcode, necessary when using an encrypted .netrc file
+if test -e /Library/Developer/CommandLineTools/usr/share/git-core/perl
+    set -x PERLLIB /Library/Developer/CommandLineTools/usr/share/git-core/perl $PERLLIB
+end
+
 # pnpm
 set -gx PNPM_HOME /Users/kobsmc/Library/pnpm
 if not string match -q -- $PNPM_HOME $PATH
