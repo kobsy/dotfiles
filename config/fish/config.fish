@@ -1,5 +1,9 @@
 fish_config theme choose "Dracula Official"
 
+if test -e ~/.env.fish
+    source ~/.env.fish
+end
+
 # EP Toolchain
 if test -e ~/.ep/bin/ep
     set -x PROJECTS_PATH "$HOME/Code"
